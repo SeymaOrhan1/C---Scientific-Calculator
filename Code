@@ -1,0 +1,320 @@
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace proje
+{
+ public partial class Form1 : Form
+ {
+ Double results = 0;
+ String operation = "";
+ bool enter_value = false;
+ public Form1()
+ {
+ InitializeComponent();
+ }
+ private void Form1_Load(object sender, EventArgs e)
+ {
+ }
+ private void textBox1_TextChanged(object sender, EventArgs e)
+ {
+ }
+ private void button1_Click(object sender, EventArgs e)
+ {
+ if (textBox1.Text.Length > 0)
+ {
+ textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1, 1);
+ }
+ if (textBox1.Text == "")
+ {
+ textBox1.Text = "0";
+ }
+ }
+ private void groupBox1_Enter(object sender, EventArgs e)
+ {
+ }
+ private void radioButton1_CheckedChanged(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a, 2);
+ }
+ private void button32_Click(object sender, EventArgs e)
+ {
+ textBox1.Text = "3.141592653589976323";
+ }
+ private void standartToolStripMenuItem_Click(object sender, EventArgs e)
+ {
+ this.Width = 360;
+ textBox1.Width = 286;
+ }
+ private void bilimselToolStripMenuItem_Click(object sender, EventArgs e)
+ {
+ this.Width = 690;
+ textBox1.Width = 613;
+ }
+ private void sayıTabanıToolStripMenuItem_Click(object sender, EventArgs e)
+ {
+ this.Width = 1045;
+ textBox1.Width = 613;
+ }
+ private void Sayibutton(object sender, EventArgs e)
+ {
+ if ((textBox1.Text == "0") || (enter_value))
+ textBox1.Text = "";
+ enter_value = false;
+ Button num = (Button)sender;
+ if (num.Text==".")
+ { if (!textBox1.Text.Contains("."))
+ textBox1.Text = textBox1.Text + num.Text;
+}
+ else
+ {
+ textBox1.Text = textBox1.Text + num.Text;
+ }
+ }
+ private void button2_Click(object sender, EventArgs e)
+ {
+ textBox1.Text = "0";
+ }
+ private void label1_Click(object sender, EventArgs e)
+ {
+ }
+ private void button3_Click(object sender, EventArgs e)
+ {
+ textBox1.Text = "0";
+ label.Text = "";
+ }
+ private void Aritmetik(object sender, EventArgs e)
+ {
+ Button num = (Button)sender;
+ operation = num.Text;
+ results = Double.Parse(textBox1.Text);
+ textBox1.Text = "";
+ label.Text = System.Convert.ToString(results) + " " + operation;
+ equal.Focus();
+ }
+ private void equal_Click(object sender, EventArgs e)
+ {
+ label.Text = "";
+ switch (operation)
+ {
+ case "+":
+ textBox1.Text = (results + Double.Parse(textBox1.Text)).ToString();
+ break;
+ case "-":
+ textBox1.Text = (results - Double.Parse(textBox1.Text)).ToString();
+ break;
+ case "X":
+ textBox1.Text = (results * Double.Parse(textBox1.Text)).ToString();
+ break;
+ case "÷":
+ textBox1.Text = (results / Double.Parse(textBox1.Text)).ToString();
+ break;
+ case "Mod":
+ textBox1.Text = (results % Double.Parse(textBox1.Text)).ToString();
+ break;
+ case "Exp":
+ double i = Double.Parse(textBox1.Text);
+double q;
+q = (results);
+ textBox1.Text = Math.Exp(i * Math.Log(q * 4)).ToString();
+ break;} }
+private void btn_log_Click(object sender, EventArgs e)
+ {
+ double logartm = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("log" + "(" + (textBox1.Text) + ")");
+ logartm = Math.Log10(logartm);
+ textBox1.Text = System.Convert.ToString(logartm);
+}
+ private void button30_Click(object sender, EventArgs e)
+ {
+ double karekok = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("√" + "(" + (textBox1.Text) + ")" );
+ karekok = Math.Sqrt(karekok);
+ textBox1.Text = System.Convert.ToString(karekok);
+ }
+ private void button29_Click(object sender, EventArgs e)
+ {
+ double arcsin = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("sinh" + "(" + (textBox1.Text) + ")");
+ arcsin = Math.Sinh(arcsin);
+ textBox1.Text = System.Convert.ToString(arcsin);
+ }
+ private void button28_Click(object sender, EventArgs e)
+ {
+ double sinx = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("sin" + "(" + (textBox1.Text) + ")");
+ sinx = Math.Sin(sinx);
+ textBox1.Text = System.Convert.ToString(sinx);
+ }
+ private void button26_Click(object sender, EventArgs e)
+ {
+ double arccos = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("cosh" + "(" + (textBox1.Text) + ")");
+ arccos = Math.Cosh(arccos);
+ textBox1.Text = System.Convert.ToString(arccos);
+ }
+ private void button25_Click(object sender, EventArgs e)
+ {
+ double cosx = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("cos" + "(" + (textBox1.Text) + ")");
+ cosx = Math.Cos(cosx);
+ textBox1.Text = System.Convert.ToString(cosx);
+ }
+ private void button23_Click(object sender, EventArgs e)
+ {
+ double arctan = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("tanh" + "(" + (textBox1.Text) + ")");
+ arctan = Math.Tanh(arctan);
+ textBox1.Text = System.Convert.ToString(arctan);
+ }
+ private void button22_Click(object sender, EventArgs e)
+ {
+ double tanx = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("tan" + "(" + (textBox1.Text) + ")");
+ tanx = Math.Tan(tanx);
+ textBox1.Text = System.Convert.ToString(tanx); }
+private void button19_Click(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a, 2);
+ }
+ private void button18_Click(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a, 16);
+ }
+ private void button17_Click(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a, 8);
+ }
+ private void button20_Click(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a);
+ }
+ private void button27_Click(object sender, EventArgs e)
+ {
+ double kare = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("(" + (textBox1.Text) + ")" + "^2");
+ kare = Math.Pow(kare,2);
+ textBox1.Text = System.Convert.ToString(kare);
+ }
+ private void button24_Click(object sender, EventArgs e)
+ {
+ double kup = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("(" + (textBox1.Text) + ")" + "^3");
+ kup = Math.Pow(kup, 3);
+ textBox1.Text = System.Convert.ToString(kup);
+ }
+ private void button38_Click(object sender, EventArgs e)
+ {
+ Double a;
+ a = Convert.ToDouble(1.0 / Convert.ToDouble(textBox1.Text));
+ textBox1.Text = System.Convert.ToString(a);
+ }
+ private void button21_Click(object sender, EventArgs e)
+ {
+ double ilog = Double.Parse(textBox1.Text);
+ label.Text = System.Convert.ToString("In" + "(" + (textBox1.Text) + ")");
+ ilog = Math.Log(ilog);
+ textBox1.Text = System.Convert.ToString(ilog);
+ }
+ private void button37_Click(object sender, EventArgs e)
+ {
+ Double a;
+ a = Convert.ToDouble(textBox1.Text) / Convert.ToDouble(100);
+ textBox1.Text = System.Convert.ToString(a);
+ }
+ private void octal_CheckedChanged(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a, 8);
+ }
+ private void dcml_CheckedChanged(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a);
+ }
+ private void hexadecimal_CheckedChanged(object sender, EventArgs e)
+ {
+ int a = int.Parse(textBox1.Text);
+ textBox1.Text = System.Convert.ToString(a, 16);
+ }
+ private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+ { if (textBox1.Text == "0")
+ {
+ textBox1.Text = " ";
+ label.Text = System.Convert.ToString(results) + " " + operation;
+ }
+ switch (e.KeyChar.ToString())
+ {
+ case "0":
+ zero.PerformClick();
+ break;
+ case "1":
+ one.PerformClick();
+break;
+ case "2":
+ two.PerformClick();
+break;
+ case "3":
+ three.PerformClick();
+break;
+ case "4":
+ four.PerformClick();
+break;
+ case "5":
+ five.PerformClick();
+break;
+ case "6":
+ six.PerformClick();
+break;
+ case "7":
+ seven.PerformClick();
+break;
+ case "8":
+ eight.PerformClick();
+break;
+ case "9":
+ nine.PerformClick();
+break;
+ case "+":
+ add.PerformClick();
+break;
+ case "-":
+ sub.PerformClick();
+ break;
+ case "*":
+ times.PerformClick();
+break;
+ case "/":
+ div.PerformClick();
+break;
+ case "=":
+ equal.PerformClick();
+equal.Focus();
+break;
+ case ".":
+ dec.PerformClick();
+break;
+ case "DEL":
+ delete.PerformClick();
+break;
+ default:
+ break;
+ }
+ }
+ private void button13_Click(object sender, EventArgs e)
+ {
+ }
+ }
+}
